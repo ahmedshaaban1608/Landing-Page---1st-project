@@ -1,0 +1,371 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+body {
+    background: #006b9c;
+    background: linear-gradient(#006b9c 0%, #2f5826 50%, #033832);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+/* Typeography General*/
+h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    h1 {
+        font-size: 5em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Kanit', Sans-Serif;
+    font-size: 3em;
+    color: #fff;
+}
+
+h3 {
+    font-family: 'Kanit', Sans-Serif;
+}
+
+p {
+    line-height: 1.6em;
+    color: #eee;
+}
+
+a {
+    text-decoration: none;
+}
+
+.material-symbols-outlined {
+    margin: 20px 0;
+    color: white;
+
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 0 1em 10vh;
+    caret-color: transparent;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 2em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.header__nav-menu ul {
+    padding-left: 0;
+    margin: 0;
+    text-align: right;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+
+.header__nav-menu li.nav-menu__link {
+    list-style-type: none;
+}
+
+@media only screen and (min-width: 992px) {
+    nav.header__nav-menu {
+        display: inline-block;
+        width: 72.98%;
+    }
+
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+
+    .header__nav-menu li.nav-menu__link {
+        display: inline-block;
+    }
+
+    .header__nav-menu li.nav-menu__link a {
+        margin-left: 10px;
+    }
+
+    div.logo a {
+        width: 26.98%;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .nav {
+        display: none;
+
+    }
+
+    nav.nav-responsive {
+        display: block;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.507);
+    }
+}
+
+.header__nav-menu .nav-menu__link a {
+    display: block;
+    padding: 1em;
+    font-weight: bold;
+    color: rgb(252, 252, 252);
+}
+
+.header__nav-menu .nav-menu__link a:hover {
+    background: rgb(6, 90, 129);
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+#nav-menu__list a.active {
+    background: rgb(6, 90, 129);
+}
+
+
+
+/* Header Styles */
+.header {
+    background: rgba(5, 21, 109, 0.788);
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    position: sticky;
+    height: 60px;
+}
+
+.logo a {
+    color: #cc1;
+    font-family: 'Kanit', Sans-Serif;
+    font-size: 1.5em;
+    padding: 10px 0.5em;
+    width: 89.98%;
+    float: left;
+    box-sizing: border-box;
+
+}
+
+/* Footer Styles */
+.footer {
+    background: rgb(7, 44, 65);
+    padding: 1em;
+    color: #fff;
+    text-align: center;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.footer .top-arrow {
+
+    display: inline-block;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0d0338;
+    scroll-behavior: smooth;
+    display: none;
+    cursor: pointer;
+}
+
+.footer .top-arrow:hover {
+    background-color: #6890cc;
+}
+
+.footer .top-arrow span {
+    font-size: 20px;
+    caret-color: transparent;
+}
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.section-container {
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em) {
+    .section-container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+section:nth-of-type(even) .section-container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .section-container::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.187);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .section-container::before {
+    content: '';
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .section-container::after {
+    content: '';
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .section-container::after {
+    content: '';
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: active class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.active {
+    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+
+}
+
+section.active .section-container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.active .section-container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
+}
+
+#pStyling {
+    padding: 50px 20px;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+table {
+    font-family: 'Kanit', sans-serif;
+    width: 300px
+}
+
+tr label,
+tr input[type="color"],
+tr input[type="number"] {
+    margin-bottom: 15px;
+    padding-top: 0;
+    width: 100%;
+    height: 40px;
+}
+
+tr label {
+    font-size: 20px;
+}
+
+input[type='number'],
+#submit {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#submit {
+    background-color: #1550be;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    padding: 20px;
+    width: 100%;
+}
+
+#submit:hover {
+    background-color: #2f5826;
+    transform: scale(0.95);
+
+}
