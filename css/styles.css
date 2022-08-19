@@ -332,7 +332,7 @@ section.active .section-container::after {
 
 table {
     font-family: 'Kanit', sans-serif;
-    width: 300px
+max-width: 100%;
 }
 
 tr label,
