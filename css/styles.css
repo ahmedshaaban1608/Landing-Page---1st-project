@@ -333,6 +333,7 @@ section.active .section-container::after {
 table {
     font-family: 'Kanit', sans-serif;
     max-width: 100%;
+max-width: 100%;
 }
 
 tr label,
@@ -369,3 +370,4 @@ input[type='number'],
     transform: scale(0.95);
 
 }
+
